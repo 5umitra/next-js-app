@@ -1,0 +1,17 @@
+
+name: Deploy
+
+on:
+  push:
+    branches: [ "main" ]
+  # pull_request:
+  #   branches: [ "main" ]        this is we dont want this, iss baar jab sirf main branch pe kuch hoga tab hee jobs done karwne hain.
+
+jobs:
+  deploy:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4     #it tell that checkout to the current(that is feature) branch.
+    - run: docker build . -t sumit/next-js-app 
